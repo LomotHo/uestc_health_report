@@ -4,7 +4,8 @@ FROM python:3.6-slim
 ENV APP_HOME="/app" \
   APP_PATH="/app/server"
 
-RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+# RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+# RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 
 # install packages & config docker
 RUN apt-get update && \
@@ -12,8 +13,7 @@ RUN apt-get update && \
   apt-get -y autoremove && \
   apt-get clean
 
-RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple && \
-  pip install selenium
+RUN pip install selenium
 
 RUN mkdir -p $APP_PATH && \
   wget -nv https://github.com/mozilla/geckodriver/releases/download/v0.29.1/geckodriver-v0.29.1-linux64.tar.gz -O /tmp/geckodriver.tgz
