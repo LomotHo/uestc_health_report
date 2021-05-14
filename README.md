@@ -23,7 +23,7 @@ docker build -t uestc-health-report --network host .
 ```bash
 docker run -itd --restart=always --name=uhr \
     -v /path/xxxx/personal_info.py:/app/server/personal_info.py \
-    uestc-health-report
+    uestc-health-report:latest
 ```
 
 - 配置文件
