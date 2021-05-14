@@ -1,23 +1,22 @@
 name: OnPush master & upload dev image
 
-on: 
+on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Build the Docker image
-      run: |
-        docker build . --file Dockerfile --tag lomot/uestc-health-report:latest
-    - name: upload image
-      run: |
-        CORE_VERSION=$(cat Dockerfile | grep "CORE_VERSION=" | cut -f2 -d \")
-        docker login --username=${{ secrets.DOCKER_ID }} --password=${{ secrets.DOCKER_TOKEN }}
-        docker push lomot/uestc-health-report:latest
+      - name: Build the Docker image
+        run: |
+          docker build . --file Dockerfile --tag lomot/uestc-health-report:latest
+      - name: upload image
+        run: |
+          CORE_VERSION=$(cat Dockerfile | grep "CORE_VERSION=" | cut -f2 -d \")
+          docker login --username=${{ secrets.DOCKER_ID }} --password=${{ secrets.DOCKER_TOKEN }}
+          docker push lomot/uestc-health-report:latest
