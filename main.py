@@ -11,6 +11,8 @@ from personal_info import server_url, webdriver_path, daily_report_data, temp_re
 
 from apscheduler.schedulers.blocking import BlockingScheduler
 
+scheduler = BlockingScheduler(timezone="Asia/Shanghai")
+
 MAX_TRY = 20
 
 headers = {
@@ -249,8 +251,8 @@ def check_job(reportor, daily_report_data, temp_report_data):
 if __name__ == "__main__":
     reportor = Reportor(login_data['username'], login_data['password'])
     check_job(reportor, daily_report_data, temp_report_data)
-    scheduler_report = BlockingScheduler()
-    scheduler_report.add_job(check_job, 'cron', day='*', hour="0", minute="0", args=[
+    scheduler_report = BlockingScheduler(timezone="Asia/Shanghai")
+    scheduler_report.add_job(check_job, 'cron', day='*', hour="9", minute="5", args=[
         reportor, daily_report_data, temp_report_data
     ])
     print("job started")
