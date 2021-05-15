@@ -13,7 +13,7 @@ RUN apt-get update && \
 RUN pip install selenium
 
 RUN mkdir -p $APP_PATH && \
-  wget -nv https://github.com/mozilla/geckodriver/releases/download/v0.29.1/geckodriver-v0.29.1-linux64.tar.gz \ -O /tmp/geckodriver.tgz && \
+  wget -nv https://github.com/mozilla/geckodriver/releases/download/v0.29.1/geckodriver-v0.29.1-linux64.tar.gz -O /tmp/geckodriver.tgz && \
   tar -zxf /tmp/geckodriver.tgz -C $APP_PATH && \
   rm /tmp/geckodriver.tgz
 
