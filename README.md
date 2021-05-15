@@ -15,7 +15,7 @@
 - 构建镜像
 
 ```bash
-docker build -t uestc-health-report --network host .
+docker build -t uestc-health-report .
 ```
 
 - 运行

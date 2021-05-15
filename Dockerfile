@@ -17,7 +17,7 @@ RUN mkdir -p $APP_PATH && \
   tar -zxf /tmp/geckodriver.tgz -C $APP_PATH && \
   rm /tmp/geckodriver.tgz
 
-### alpine source, timezone
+### configure apt/pip source, timezone
 # RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 # RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime

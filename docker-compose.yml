@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  uhr:
+    container_name: uhr
+    image: uestc-health-report:latest
+    volumes:
+      - ./personal_info.py:/app/server/personal_info.py
+    restart: on-failure
+    stdin_open: true
+    tty: true
