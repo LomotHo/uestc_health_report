@@ -10,7 +10,7 @@
 
 注：经测试 chromedriver 无法满足需求
 
-## for docker
+## For docker --by lomot
 
 - 构建镜像
 
@@ -31,7 +31,7 @@ docker run -itd --restart=always --name=uhr \
 容器需要指定一个配置文件`personal_info.py`, 模板为`personal_info_demo.py`, 修改其中的`webdriver_path`的值为`r"/app/server/geckodriver"`。
 然后在命令中指定配置文件路径即可, 即修改`-v /path/xxxx/personal_info.py:/app/server/personal_info.py`中的`/path/xxxx/personal_info.py`
 
-## 配置
+## 手动配置
 
 配置 python 环境：`pip install -r requirements.txt`
 
